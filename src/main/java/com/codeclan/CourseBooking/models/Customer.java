@@ -1,15 +1,15 @@
 package com.codeclan.CourseBooking.models;
 
-public class Course {
+public class Customer {
 
     private String name;
     private String town;
-    private int rating;
+    private int age;
 
-    public Course(String name, String town, int rating) {
+    public Customer(String name, String town, int age) {
         this.name = name;
         this.town = town;
-        this.rating = rating;
+        this.age = age;
     }
 
     public String getName() {
@@ -28,11 +28,11 @@ public class Course {
         this.town = town;
     }
 
-    public int getRating() {
-        return rating;
+    public int getAge() {
+        return age;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setAge(int age) {
+        this.age = age;
     }
 }
