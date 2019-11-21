@@ -28,9 +28,9 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
-        Course course1 = new Course("Python for Idiots", "Glasgow", 5);
+        Course course1 = new Course("Python", "Glasgow", 5);
         courseRepository.save(course1);
-        Course course2 = new Course("React for Experts", "Edinburgh", 3);
+        Course course2 = new Course("React", "Edinburgh", 3);
         courseRepository.save(course2);
 
         Customer customer1 = new Customer("Clive", "Glasgow", 24);
