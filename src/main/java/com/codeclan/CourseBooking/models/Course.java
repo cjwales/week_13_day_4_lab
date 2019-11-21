@@ -1,6 +1,11 @@
 package com.codeclan.CourseBooking.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.awt.print.Book;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "courses")
@@ -15,14 +20,26 @@ public class Course {
     private String town;
     @Column(name = "rating")
     private int rating;
+    @JsonIgnoreProperties("course")
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+    private List<Booking> bookings;
 
     public Course(String name, String town, int rating) {
         this.name = name;
         this.town = town;
         this.rating = rating;
+        this.bookings = new ArrayList<Booking>();
     }
 
     public Course() {
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 
     public Long getId() {
@@ -55,5 +72,9 @@ public class Course {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public void addBooking(Booking booking) {
+        this.bookings.add(booking);
     }
 }
