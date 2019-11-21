@@ -1,15 +1,36 @@
 package com.codeclan.CourseBooking.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "courses")
 public class Course {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "town")
     private String town;
+    @Column(name = "rating")
     private int rating;
 
     public Course(String name, String town, int rating) {
         this.name = name;
         this.town = town;
         this.rating = rating;
+    }
+
+    public Course() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
